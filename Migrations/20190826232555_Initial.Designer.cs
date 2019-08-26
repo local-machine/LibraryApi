@@ -8,8 +8,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LibraryApi.Migrations
 {
     [DbContext(typeof(LibraryContext))]
-    [Migration("20190826222532_UpdatedModels")]
-    partial class UpdatedModels
+    [Migration("20190826232555_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -54,6 +54,8 @@ namespace LibraryApi.Migrations
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("Genre");
+
+                    b.Property<string>("Image");
 
                     b.Property<string>("Title");
 

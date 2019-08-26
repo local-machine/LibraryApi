@@ -11,7 +11,7 @@ namespace LibraryApi.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
             => optionsBuilder
-                .UseMySql(@"server=localhost;user id=root;password=epicodus;port=3306;database=library_api;");
+                .UseMySql(@"server=localhost;user id=root;password=epicodus;port=3306;database=libraryapi;");
 
         public LibraryContext(DbContextOptions options) : base(options)
         {

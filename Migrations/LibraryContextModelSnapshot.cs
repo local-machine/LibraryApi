@@ -53,6 +53,8 @@ namespace LibraryApi.Migrations
 
                     b.Property<string>("Genre");
 
+                    b.Property<string>("Image");
+
                     b.Property<string>("Title");
 
                     b.HasKey("BookId");
