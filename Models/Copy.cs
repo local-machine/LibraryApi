@@ -13,6 +13,12 @@ namespace LibraryApi.Models
         public int BookId { get; set; }
         public virtual Book Book { get; set; }
 
+        public bool Available { get; set; }
+
+        public Copy(bool Available)
+        {
+            Available = true;
+        }
  
     }
 }
