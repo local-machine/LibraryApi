@@ -21,7 +21,7 @@ namespace LibraryApi.Controllers
 
         // GET api/copies/5
         [HttpGet("{id}")]
-        public ActionResult<Copy> Get(int id)
+        public ActionResult<Copy> Get(int id, bool Available)
         {
             var thisCopy = _db.Copies.FirstOrDefault(x => x.CopyId == id);
             return thisCopy;
