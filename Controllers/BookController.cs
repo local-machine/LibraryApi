@@ -35,9 +35,9 @@ namespace LibraryApi.Controllers
             _db.SaveChanges();
         }
 
-        // PUT api/books/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] Book book)
+        // POST api/books/5
+        [HttpPost("{id}")]
+        public void Post(int id, [FromBody] Book book)
         {
             book.BookId = id;
             _db.Entry(book).State = EntityState.Modified;
