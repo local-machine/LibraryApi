@@ -4,6 +4,7 @@ using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using LibraryApi.Models;
+using Microsoft.AspNetCore.Hosting;
 
 namespace LibraryApi.Controllers
 {
@@ -12,6 +13,8 @@ namespace LibraryApi.Controllers
     public class BooksController : ControllerBase
     {
         private LibraryContext _db = new LibraryContext();
+        private readonly IHostingEnvironment hostingEnvironment;
+
         // GET api/books
         [HttpGet]
         public ActionResult<IEnumerable<Book>> Get()
