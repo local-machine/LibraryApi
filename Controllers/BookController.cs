@@ -12,19 +12,46 @@ namespace LibraryApi.Controllers
     public class BooksController : ControllerBase
     {
         private LibraryContext _db = new LibraryContext();
+        // public ActionResult Index()
+        // {
+        //     return _db.Books.ToList();
+        // }
+
+        // public ActionResult Create()
+        // {
+        //     ViewBag.AuthorId = new SelectList(_db.Authors, "AuthorId", "Name");
+        //     return View();
+        // }
+
+        // public ActionResult Details(int id)
+        // {
+        //     var thisBook = _db.Books
+        //     .Include(book => book.Authors)
+        //     .ThenInclude(join => join.Author)
+        //     .FirstOrDefault(book => book.BookId == id);
+        //     return (thisBook);
+        // }
         // GET api/books
         [HttpGet]
-        public ActionResult<IEnumerable<Book>> Get()
+        public ActionResult<IEnumerable<Book>> GetAll()
         {
-            return _db.Books.ToList();
+             // return _db.Books.ToList();
+            return _db.Books
+            .Include(x => x.Authors)
+            .ThenInclude(join => join.Author)
+            .OrderBy(x => x.Title).ToList();
         }
 
         // GET api/books/5
         [HttpGet("{id}")]
         public ActionResult<Book> Get(int id)
         {
-            var thisBook = _db.Books.FirstOrDefault(x => x.BookId == id);
-            return thisBook;
+            // var thisBook = _db.Books.FirstOrDefault(x => x.BookId == id);
+            // return thisBook;
+            return _db.Books
+            .Include(x => x.Authors)
+            .ThenInclude(join => join.Author)
+            .FirstOrDefault(x => x.BookId == id);
         }
 
         // POST api/books
