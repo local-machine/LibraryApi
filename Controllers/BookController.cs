@@ -79,5 +79,13 @@ namespace LibraryApi.Controllers
             _db.Books.Remove(bookToDelete);
             _db.SaveChanges();
         }
+
+        // POST api/Books/1/Author/3
+        [HttpPost("{bookId}/author/{authorId}")]
+        public void AddAuthor(int bookId, int authorId)
+        {
+            _db.AuthorBooks.Add(new AuthorBook() { BookId = bookId, AuthorId = authorId });
+            _db.SaveChanges();
+        }
     }
 }
