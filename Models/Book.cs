@@ -11,10 +11,8 @@ namespace LibraryApi.Models
         public int BookId { get; set; }
         public string Title { get; set; }
         public string Genre { get; set; }
-        public string Image { get; set; }
 
         public virtual ICollection<AuthorBook> Authors { get; set; }
-        public virtual ICollection<Copy> Copies { get;}
 
 
 
@@ -22,7 +20,6 @@ namespace LibraryApi.Models
         public Book()
         {
             this.Authors = new HashSet<AuthorBook>();
-            this.Copies = new HashSet<Copy>();
         }
  
     }

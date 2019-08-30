@@ -35,9 +35,9 @@ namespace LibraryApi.Controllers
             _db.SaveChanges();
         }
 
-        // PUT api/authors/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] Author author)
+        // POST api/authors/5
+        [HttpPost("{id}")]
+        public void Post(int id, [FromBody] Author author)
         {
             author.AuthorId = id;
             _db.Entry(author).State = EntityState.Modified;
